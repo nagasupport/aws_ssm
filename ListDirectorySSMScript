@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "2.2",
+  "description": "Command Document Example JSON Template",
+  "parameters": {
+    "url": {
+      "type": "String",
+      "description": "Example",
+      "default": "wget url"
+    }
+  },
+  "mainSteps": [
+    {
+      "action": "aws:runShellScript",
+      "name": "runShellScript",
+      "inputs": {
+        "timeoutSeconds": "60",
+        "runCommand": [
+          "{{url}}",
+          "pwd",
+          "ls -l"
+        ]
+      }
+    }
+  ]
+}
