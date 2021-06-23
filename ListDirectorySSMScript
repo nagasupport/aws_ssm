@@ -24,7 +24,7 @@
           "runuser -l ec2-user -c 'cp /tmp/{{filename}} /home/ec2-user/dir1'",
           "runuser -l ec2-user -c 'cp /tmp/{{filename}} /home/ec2-user/dir2'",
           "runuser -l ec2-user -c 'cp /tmp/{{filename}} /home/ec2-user/dir3'",
-          "runuser -l ec2-user -c 'ls -l'"
+          "runuser -l ec2-user -c 'ls -ltrh /home/ec2-user/dir*'"
         ]
       }
     }
