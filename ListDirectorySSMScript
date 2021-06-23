@@ -4,8 +4,13 @@
   "parameters": {
     "url": {
       "type": "String",
-      "description": "Example",
+      "description": "Predefined url",
       "default": "wget url"
+    },
+    "filename": {
+      "type": "String",
+      "description": "Example",
+      "default": "t.txt"
     }
   },
   "mainSteps": [
@@ -15,8 +20,8 @@
       "inputs": {
         "timeoutSeconds": "60",
         "runCommand": [
-          "{{url}}",
-          "pwd",
+          "wget -O \tmp\" + filename + " '" + {{url}} + "'" ,
+          "cp \tmp\" + filename + " /home/dir1/",
           "ls -l"
         ]
       }
