@@ -4,12 +4,12 @@
   "parameters": {
     "url": {
       "type": "String",
-      "description": "Predefined url",
-      "default": "wget url"
+      "description": "Predefined url of S3 file",
+      "default": ""
     },
     "filename": {
       "type": "String",
-      "description": "Example",
+      "description": "destination file name",
       "default": "t.txt"
     }
   },
@@ -20,9 +20,11 @@
       "inputs": {
         "timeoutSeconds": "60",
         "runCommand": [
-          "wget -O \tmp\" + filename + " '" + {{url}} + "'" ,
-          "cp \tmp\" + filename + " /home/dir1/",
-          "ls -l"
+          "runuser -l ec2-user -c 'wget -O /tmp/{{filename}} \"{{url}}\"'",
+          "runuser -l ec2-user -c 'cp /tmp/{{filename}} /home/ec2-user/dir1'",
+          "runuser -l ec2-user -c 'cp /tmp/{{filename}} /home/ec2-user/dir2'",
+          "runuser -l ec2-user -c 'cp /tmp/{{filename}} /home/ec2-user/dir3'",
+          "runuser -l ec2-user -c 'ls -l'"
         ]
       }
     }
